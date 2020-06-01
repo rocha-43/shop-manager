@@ -1,0 +1,87 @@
+<html>
+    <body>
+	<form method="get">
+	    <input type="text" id="Input" />
+		<input type="submit" id="Submit" value="Enviar" />
+		<script>
+			console.log("OK");
+			var product_name = document.getElementById("Input");
+			console.log(product_name);
+		</script>
+	</form>
+
+	<form method="get">
+ 	    <input type="number" id="Input_number" />
+	    <input type="submit" id="Submit_number" value="Enviar" />
+		<script>
+			console.log("OK_N")
+		</script>
+	</form>
+
+    </body>
+    <script>
+	
+	/*
+	function mostrarValor() {
+	    alert(document.getElementById("Input").value);
+	}
+	
+	document.getElementById("Input").onkeypress = function(e) {
+	    if (e.keyCode == 13) {
+		mostrarValor();
+		e.preventDefault();
+	    }
+	}
+
+	document.getElementById("Submit").oneclick = function(e) {
+	    mostrarValor();
+	    e.preventDefault();
+	}
+	
+	
+	document.getElementById("Input_number").onekeypress = function(e) {
+    	    if (e.keyCode == 13) {
+		mostratValor();
+		e.preventDefault();
+	    }
+	}
+	
+	document.getElementById("Submit_number").oneclick = function(e) {
+	    mostrarValor()
+	    e.preventDefault()
+	}
+
+	
+	var db = openDatabase("data", "2.0", "Mybase", 4048);
+	
+	function save(){
+	    var product = document.getElementById('Input').value;
+	    var quant = document.getElementById('Input_number').value;
+	    db.transaction(function(armazenar){
+	    armazenar.executeSql('INSERT INTO products_list (prod, quant) VALUES(?,?)',[Input, Input_number]);
+	});
+	}
+	*/
+	// teste
+
+	/*
+	let db = sqlite3.Database('data.db');
+
+	db.run(`INSERT INTO products_list(prod, quant) VALUES(?, ?)`, ['Input', 'Input_number'])
+	*/
+	// minha idei
+
+	import sqlite3 from 'node_modules';
+
+	var db = openDatabase("data", "2.0", "data", 4048);
+
+	db.transaction(function (add){
+		add.executeSql("INSERT INTO products_list VALUES (?, ?)", [Input, Input_number])
+	})
+
+
+
+
+ 
+	</script>
+</html>
